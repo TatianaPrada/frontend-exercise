@@ -1,5 +1,4 @@
-
-.Cart {
-    background-color: aqua;
-    width: 50px;
+.layout {
+    display: flex;
+    position: relative;
 }

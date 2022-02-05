@@ -1,7 +1,7 @@
 import { Card, Col, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
-function Element({ item }) {
+const Element = ({ item }) => {
   return (
     <>
        <Col>

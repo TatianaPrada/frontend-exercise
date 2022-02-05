@@ -1,0 +1,11 @@
+.cart {
+    width: 35%;
+    position: sticky;
+    background-color: aliceblue;
+    padding: 15px;
+}
+
+.button-box {
+    display: flex;
+    justify-content: space-evenly;
+}
