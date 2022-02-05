@@ -1,2 +1,0 @@
-export const ADD_ELEMENT = 'ADD_TO_CART'
-export const REMOVE_ELEMENT = 'REMOVE_ELEMENT'

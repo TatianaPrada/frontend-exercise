@@ -1,24 +1,31 @@
 import {Table, Button} from "react-bootstrap";
 import './cart.css'
+import CartContext from '../../context/CartContext'
+import { useContext } from "react";
 
 const Cart = () => {
+  const {cartProducts} = useContext(CartContext)
+
   return (
     <div className="cart">
       <Table size="sm" hover>
         <thead>
           <tr>
             <th>Your Cart</th>
-            <th>0</th>
+            <th>{cartProducts.length > 0 && cartProducts.length}</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Title </td>
-            <td>0 </td>
-          </tr>
-          <tr>
+      
+          {cartProducts.map(item => (
+            <tr key={item.id}>
+            <td>{item.name} </td>
+            <td>{item.value} €</td>
+            </tr>
+          ))}
+            <tr>
             <td>Total: </td>
-            <td> 0 €</td>
+            <td> {cartProducts.reduce((reducer, item) => item.value + reducer, 0)} €</td>
           </tr>
         </tbody>
       </Table>
