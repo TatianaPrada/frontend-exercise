@@ -1,11 +1,16 @@
 .cart {
     width: 35%;
-    position: sticky;
-    background-color: aliceblue;
+    height:fit-content;
     padding: 15px;
+    position: sticky;
+    top: 60px; 
 }
 
 .button-box {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.btn{
+    margin-bottom: 10px;
 }

@@ -11,7 +11,7 @@ const Element = ({ item }) => {
       <Col>
         <Card
           border={cartProducts.includes(item) && "primary"}
-          style={{ width: "18rem" }}
+          style={{ width: "17rem" }}
         >
           <Card.Img variant="top" src="" />
           <Card.Body>
@@ -25,11 +25,11 @@ const Element = ({ item }) => {
               </p>
             </Card.Text>
             {cartProducts.includes(item) ? (
-              <Button variant="danger" onClick={() => removeItem(item.id)}>
+              <Button variant="outline-danger" onClick={() => removeItem(item.id)}>
                 Remove
               </Button>
             ) : (
-              <Button variant="secondary" onClick={() => addItem(item)}>
+              <Button variant="outline-secondary" onClick={() => addItem(item)}>
                 Add
               </Button>
             )}

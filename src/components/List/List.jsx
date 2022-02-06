@@ -1,19 +1,30 @@
 import "./list.css";
 import Element from "../Element/Element";
-import { CardGroup, Row } from "react-bootstrap";
+import { Row, Container } from "react-bootstrap";
 import components from "../../data";
 
-const List = () => {
+const List = ({ searchQuery }) => {
+  // function for filtering in the search bar
+  const filteredList = components.filter((item) => {
+    if (searchQuery === "") {
+      return item;
+    } else {
+      return (
+        item.name.toLowerCase().includes(searchQuery) ||
+        item.type.toLowerCase().includes(searchQuery)
+      );
+    }
+  });
   return (
-    <div className="List">
-      <CardGroup>
-        <Row xs={1} md={2} lg={3} className="g-4">
-          {components.map((item) => (
+    <Container>
+      <div className="List">
+        <Row xs="auto" md={2} lg={3} className="g-4">
+          {filteredList.map((item) => (
             <Element key={item.value} item={item} />
           ))}
         </Row>
-      </CardGroup>
-    </div>
+      </div>
+    </Container>
   );
 };
 export default List;

@@ -2,18 +2,20 @@ import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
 import Cart from "./components/Cart/Cart";
 import List from "./components/List/List";
-import { Container } from "react-bootstrap";
+import {useState} from 'react'
 
 function App() {
- 
-
+  //Managament of state for searching query
+  const [searchQuery, setSearchQuery] = useState("");
+  const inputHandler = (e) => {
+    let lowerCase = e.target.value.toLowerCase();
+    setSearchQuery(lowerCase);
+  };
   return (
     <>
-      <Navigation />
+      <Navigation inputHandler={inputHandler}/>
       <div className="layout">
-        <Container>
-          <List />
-        </Container>
+        <List searchQuery={searchQuery}/>
         <Cart />
       </div>
     </>
