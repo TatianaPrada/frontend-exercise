@@ -1,6 +1,7 @@
 import { Card, Col, Button } from "react-bootstrap";
 import CartContext from "../../context/CartContext";
 import { useContext } from "react";
+import './element.css'
 
 const Element = ({ item }) => {
   const { addItem } = useContext(CartContext);
@@ -11,11 +12,11 @@ const Element = ({ item }) => {
       <Col>
         <Card
           border={cartProducts.includes(item) && "primary"}
-          style={{ width: "17rem" }}
         >
-          <Card.Img variant="top" src="" />
-          <Card.Body>
+          <Card.Header>
             <Card.Title>{item.name}</Card.Title>
+            </Card.Header>
+            <Card.Body>
             <Card.Text>
               <p>
                 <b>Type:</b> <span>{item.type}</span>

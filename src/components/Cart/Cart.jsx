@@ -13,19 +13,19 @@ const Cart = () => {
 
   return (
     <div className="cart">
-      <Table variant="light" responsive="sm" size="sm" hover>
+      <Table variant="light" responsive="sm" size="md" hover>
         <thead>
           <tr>
-            <th className="p-2" colSpan={2}> <BsCart4 /> Your Cart</th>
-            <th className="p-2" >{cartProducts.length > 0 && cartProducts.length}</th>
+            <th className="pt-3 pb-3" colSpan={2}> <BsCart4 /> Your Cart</th>
+            <th className="pt-3 pb-3" >{cartProducts.length > 0 && cartProducts.length}</th>
           </tr>
         </thead>
         <tbody>
           {cartProducts.map((item) => (
             <tr key={item.id}>
-              <td className="pt-3 pb-3">{item.name} </td>
-              <td className="pt-3 pb-3">{item.value}€ </td>
-              <td className="pt-3 pb-3">({(item.value * 0.23).toFixed(2)}€)</td>
+              <td className="pt-2 pb-2">{item.name} </td>
+              <td className="pt-2 pb-2">{item.value}€ </td>
+              <td className="pt-2 pb-2">({(item.value * 0.23).toFixed(2)}€)</td>
             </tr>
           ))}
           <tr>

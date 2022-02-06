@@ -1,0 +1,22 @@
+.card {
+    width: 12rem;
+}
+@media (min-width: 481px) and (max-width: 991px) {
+    .card {
+        width: 15rem;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .card {
+        width: 13rem;
+    }
+}
+
+@media (min-width: 1281px) {
+    .card {
+        width: 17rem;
+        min-height: 12rem;
+    }
+}
