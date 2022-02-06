@@ -1,6 +1,7 @@
 import { ADD_ITEM, REMOVE_ITEM, CLEAR_CART, GET_CHEAPEST_BUILD } from "./Types";
 import components from "../data";
 
+//Functions for the different actions in the cart:
 const CartReducer = (state, action) => {
   switch (action.type) {
     case ADD_ITEM: {
@@ -25,7 +26,6 @@ const CartReducer = (state, action) => {
     }
     case GET_CHEAPEST_BUILD: {
       //Function to get the cheapest item by type:
-
       const types = [...new Set([...components.map((item) => item.type)])];
       const cheapestByType = (type) => {
         return components

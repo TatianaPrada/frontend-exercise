@@ -1,23 +1,36 @@
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, Badge } from "react-bootstrap";
 import "./cart.css";
-import CartContext from "../../context/CartContext";
+import Context from "../../context/Context";
 import { useContext } from "react";
-import { BsCart4 } from 'react-icons/bs';
+import { BsCart4 } from "react-icons/bs";
 
 const Cart = () => {
-  const { cartProducts } = useContext(CartContext);
-  const { clearCart } = useContext(CartContext);
-  const { getCheapest } = useContext(CartContext);
-  const total = cartProducts.reduce(
-    (reducer, item) => item.value + reducer, 0)
+  //Context for state managament:
+  const { cartProducts } = useContext(Context);
+  const { clearCart } = useContext(Context);
+  const { getCheapest } = useContext(Context);
+  //Total of cart:
+  const total = cartProducts.reduce((reducer, item) => item.value + reducer, 0);
 
   return (
     <div className="cart">
+      <div className="cart-title">
+        <h5>
+          <BsCart4 /> Your Cart
+        </h5>
+        <p>
+          <Badge bg="primary">
+            {cartProducts.length > 0 && cartProducts.length}
+          </Badge>
+        </p>
+      </div>
+
       <Table variant="light" responsive="sm" size="md" hover>
         <thead>
           <tr>
-            <th className="pt-3 pb-3" colSpan={2}> <BsCart4 /> Your Cart</th>
-            <th className="pt-3 pb-3" >{cartProducts.length > 0 && cartProducts.length}</th>
+            <th className="pt-3 pb-3"></th>
+            <th className="pt-3 pb-3"> Value: </th>
+            <th className="pt-3 pb-3">Taxes:</th>
           </tr>
         </thead>
         <tbody>
@@ -29,8 +42,12 @@ const Cart = () => {
             </tr>
           ))}
           <tr>
-            <td className="pt-3 pb-3"><strong>Total: </strong></td>
-            <td className="pt-3 pb-3"><strong>{total}€ </strong></td>
+            <td className="pt-3 pb-3">
+              <strong>Total: </strong>
+            </td>
+            <td className="pt-3 pb-3">
+              <strong>{total}€ </strong>
+            </td>
             <td className="pt-3 pb-3">({(total * 0.23).toFixed(2)}€)</td>
           </tr>
         </tbody>

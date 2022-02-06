@@ -4,7 +4,7 @@ import { Row, Container } from "react-bootstrap";
 import components from "../../data";
 
 const List = ({ searchQuery }) => {
-  // function for filtering in the search bar
+  // Function for filtering the items by the search bar:
   const filteredList = components.filter((item) => {
     if (searchQuery === "") {
       return item;

@@ -1,8 +1,9 @@
 import { useReducer } from "react";
-import CartContext from "./CartContext";
+import Context from "./Context";
 import CartReducer from "./CartReducer";
 import { ADD_ITEM, REMOVE_ITEM, CLEAR_CART, GET_CHEAPEST_BUILD } from "./Types";
 
+//States management for the differents functions of the cart:
 const CartState = ({ children }) => {
   const initialState = {
     cartProducts: [],
@@ -22,8 +23,9 @@ const CartState = ({ children }) => {
     dispatch({ type: GET_CHEAPEST_BUILD });
   };
 
+//Wrapping the app (children) into the context (state managament):
   return (
-    <CartContext.Provider
+    <Context.Provider
       value={{
         cartProducts: state.cartProducts,
         addItem,
@@ -33,7 +35,7 @@ const CartState = ({ children }) => {
       }}
     >
       {children}
-    </CartContext.Provider>
+    </Context.Provider>
   );
 };
 
