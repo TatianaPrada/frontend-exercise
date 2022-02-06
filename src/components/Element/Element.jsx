@@ -9,7 +9,10 @@ const Element = ({ item }) => {
   return (
     <>
       <Col>
-        <Card border={cartProducts.includes(item) && "primary"} style={{ width: "18rem" }}>
+        <Card
+          border={cartProducts.includes(item) && "primary"}
+          style={{ width: "18rem" }}
+        >
           <Card.Img variant="top" src="" />
           <Card.Body>
             <Card.Title>{item.name}</Card.Title>

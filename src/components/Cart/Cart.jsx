@@ -1,10 +1,12 @@
-import {Table, Button} from "react-bootstrap";
-import './cart.css'
-import CartContext from '../../context/CartContext'
+import { Table, Button } from "react-bootstrap";
+import "./cart.css";
+import CartContext from "../../context/CartContext";
 import { useContext } from "react";
 
 const Cart = () => {
-  const {cartProducts} = useContext(CartContext)
+  const { cartProducts } = useContext(CartContext);
+  const { clearCart } = useContext(CartContext);
+  const { getCheapest } = useContext(CartContext);
 
   return (
     <div className="cart">
@@ -16,25 +18,37 @@ const Cart = () => {
           </tr>
         </thead>
         <tbody>
-      
-          {cartProducts.map(item => (
+          {cartProducts.map((item) => (
             <tr key={item.id}>
-            <td>{item.name} </td>
-            <td>{item.value} €</td>
+              <td>{item.name} </td>
+              <td>{item.value} €</td>
             </tr>
           ))}
-            <tr>
+          <tr>
             <td>Total: </td>
-            <td> {cartProducts.reduce((reducer, item) => item.value + reducer, 0)} €</td>
+            <td>
+              {" "}
+              {cartProducts.reduce(
+                (reducer, item) => item.value + reducer,
+                0
+              )}{" "}
+              €
+            </td>
           </tr>
         </tbody>
       </Table>
       <div className="button-box">
-      <Button variant="outline-primary"> Get cheapest build</Button>
-      <Button variant="outline-danger"> Clear all</Button>
+        <Button variant="outline-primary" onClick={() => getCheapest()}>
+          {" "}
+          Get cheapest build
+        </Button>
+        <Button variant="outline-danger" onClick={() => clearCart()}>
+          {" "}
+          Clear all
+        </Button>
       </div>
     </div>
   );
-}
+};
 
 export default Cart;
