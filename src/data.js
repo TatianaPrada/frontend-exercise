@@ -12,14 +12,12 @@ const components = [
     name: "AMD Ryzen 7 3700X 3.6 GHz 8-Core",
     value: 289,
     type: componentType.processor,
-    img:"https://i5.walmartimages.com/asr/b3bdf3d9-2c0d-4f5e-b7ab-645194d3741d_1.b0a77b8eb8a202fb6de7b77aaa6839e0.png"
   },
   {
     id: "af8932d0-0280-4f5a-8fc1-ab5d994571a4",
     name: "Intel Core i5-10600K 4.1 GHz 6-Core",
     value: 357,
     type: componentType.processor,
-    img:"https://img.globaldata.pt/products/BX8070110600K.jpg",
   },
   {
     id: "2f7cd77f-0983-4550-822e-20a936b008f7",
